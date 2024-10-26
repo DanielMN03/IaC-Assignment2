@@ -1,4 +1,3 @@
-#Resource group variables
 variable "rg_name" {
     description = "The name of the resource group"
     type        = string
@@ -6,32 +5,7 @@ variable "rg_name" {
 
 variable "location" {
     description = "The location of the resource group"
-    type        = string
-}
-
-#Storage account variables
-variable "sa_name" {
-    description = "The name of the storage account"
-    type        = string
-}
-
-variable "sc_name" {
-    description = "The name of the storage container"
-    type        = string
-}
-
-#Networking variables
-
-
-variable "vnet_name" {
-    description = "The name of the virtual network"
     type        = string    
-}
-
-variable "subnet_name" {
-    description = "The name of the subnet"
-    type        = string    
-  
 }
 
 variable "nsg_name" {
@@ -39,7 +13,10 @@ variable "nsg_name" {
     type        = string
 }
 
-# Load Balancer variables
+variable "vnet_name" {
+    description = "The name of the virtual network"
+    type        = string    
+}
 
 variable "lb_public_ip_name" {
     description = "The name of the public IP address for the Load Balancer"
