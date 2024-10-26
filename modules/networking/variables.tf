@@ -17,7 +17,7 @@ variable "vnet_name" {
     description = "The name of the virtual network"
     type        = string    
 }
-
+# Load Balancer variables
 variable "lb_public_ip_name" {
     description = "The name of the public IP address for the Load Balancer"
     type        = string
