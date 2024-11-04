@@ -56,6 +56,6 @@ resource "azurerm_lb" "load_balancer" {
   # Frontend IP Configuration
   frontend_ip_configuration {
     name                 = "PublicIPAddress"
-    public_ip_address_id = azurerm_public_ip.lb_public_ip.id  # Link to the Public IP resource
+    public_ip_address_id = azurerm_public_ip.lb_public_ip.id # Link to the Public IP resource
   }
 }
