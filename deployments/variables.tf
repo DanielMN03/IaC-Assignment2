@@ -75,6 +75,10 @@ variable "db_name" {
   type        = string
 }
 
+
+
+
+
 # service plan variables
 
 variable "app_service_plan_name" {
@@ -91,3 +95,4 @@ variable "sku_name" {
   description = "The SKU name"
   type        = string
 }
+

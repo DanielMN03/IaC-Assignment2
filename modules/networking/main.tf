@@ -1,5 +1,5 @@
 resource "azurerm_virtual_network" "vnet" {
-  name                = var.vnet_name
+  name                = "${var.vnet_name}${var.random_string_suffix}"
   location            = var.location
   resource_group_name = var.rg_name
   address_space       = ["10.0.0.0/16"]
@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "vnet" {
 
 # Application Subnet
 resource "azurerm_subnet" "app_subnet" {
-  name                 = "${var.vnet_name}-app-subnet"
+  name                 = "${var.vnet_name}-app"
   resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -15,7 +15,7 @@ resource "azurerm_subnet" "app_subnet" {
 
 # Database Subnet
 resource "azurerm_subnet" "db_subnet" {
-  name                 = "${var.vnet_name}-db-subnet"
+  name                 = "${var.vnet_name}-db"
   resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.2.0/24"]
@@ -49,7 +49,7 @@ resource "azurerm_public_ip" "lb_public_ip" {
 
 # Load Balancer
 resource "azurerm_lb" "load_balancer" {
-  name                = var.lb_name
+  name                = "${var.lb_name}${var.random_string_suffix}"
   location            = var.location
   resource_group_name = var.rg_name
 

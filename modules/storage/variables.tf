@@ -17,3 +17,8 @@ variable "sc_name" {
   description = "The name of the storage container"
   type        = string
 }
+
+variable "random_string_suffix" {
+  description = "The suffix to append to the names of resources"
+  type        = string  
+}

@@ -1,0 +1,36 @@
+#rg variables
+rg_name = "rg-assigment2dmn"
+location = "westeurope"
+
+#sa variables
+sa_name = "saassignment2dmn"
+sc_name = "scassignment2dmn"
+
+#Network variables
+vnet_name = "vnetdmn"
+subnet_name = "subnetdmn"
+nsg_name = "nsgdmn"
+
+#LB variables
+lb_name = "loadbalancerdmn"
+lb_public_ip_name = "lbpublicipdmn"
+
+#database variables
+sql_server_name = "dmnsqlserver"
+admin_login = "dmn_admin_user"
+admin_login_password = "jshfhaASDF#11!"
+db_name = "dmn_database"
+
+#service plan variables
+app_service_plan_name = "dmnserviceplan"
+
+#SKU name 
+sku_name = "B1"
+
+#os type
+os_type = "Linux"
+
+
+
+
+

@@ -27,3 +27,8 @@ variable "lb_name" {
   description = "The name of the Load Balancer"
   type        = string
 }
+
+variable "random_string_suffix" {
+  description = "The suffix to append to the names of resources"
+  type        = string  
+}

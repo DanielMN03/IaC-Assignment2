@@ -1,12 +1,8 @@
-resource "random_string" "random_string" {
-  length  = 6
-  special = false
-  upper   = false
-}
+
 
 # Define the Storage Account (includes Blob Storage)
 resource "azurerm_storage_account" "storage_account" {
-  name                     = "${var.sa_name}${random_string.random_string.result}"
+  name                     = "${var.sa_name}${var.random_string_suffix}"
   resource_group_name      = var.rg_name
   location                 = var.location
   account_tier             = "Standard" 
