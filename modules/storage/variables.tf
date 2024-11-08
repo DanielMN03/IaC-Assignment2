@@ -20,5 +20,5 @@ variable "sc_name" {
 
 variable "random_string_suffix" {
   description = "The suffix to append to the names of resources"
-  type        = string  
+  type        = string
 }
