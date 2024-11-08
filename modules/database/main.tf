@@ -14,13 +14,13 @@ resource "azurerm_mssql_server" "sql_server" {
 }
 
 resource "azurerm_mssql_server_security_alert_policy" "security_alert_policy" {
-  resource_group_name          = var.rg_name
-  server_name                  = azurerm_mssql_server.sql_server.name
-  state                        = "Enabled"
-  email_account_admins         = true
-  storage_endpoint             = var.storage_endpoint
-  storage_account_access_key   = var.storage_account_access_key
-  retention_days               = 30  
+  resource_group_name        = var.rg_name
+  server_name                = azurerm_mssql_server.sql_server.name
+  state                      = "Enabled"
+  email_account_admins       = true
+  storage_endpoint           = var.storage_endpoint
+  storage_account_access_key = var.storage_account_access_key
+  retention_days             = 30
 }
 
 
