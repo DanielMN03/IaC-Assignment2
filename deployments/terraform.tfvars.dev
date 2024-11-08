@@ -1,0 +1,37 @@
+#rg variables
+rg_name = "rg-assigment2dmn"
+location = "westeurope"
+
+#sa variables
+sa_name = "saoppg2dev"
+sc_name = "scoppg2dev"
+
+#Network variables
+vnet_name = "vnetdev"
+subnet_name = "subnetdev"
+nsg_name = "nsgdev"
+
+#LB variables
+lb_name = "loadbalancerdev"
+lb_public_ip_name = "lbpublicipdev"
+
+#database variables
+sql_server_name = "devsqlserver"
+admin_login = "dev_admin_user"
+admin_login_password = "jshfhaASDF#11!"
+db_name = "dev_database"
+
+#service plan variables
+app_service_plan_name = "devserviceplan"
+
+#SKU name 
+sku_name = "B1"
+
+#os type
+os_type = "Linux"
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+#rg variables
+rg_name = "rg-assigment2dmn"
+location = "westeurope"
+
+#sa variables
+sa_name = "saoppg2prod"
+sc_name = "scoppg2prod"
+
+#Network variables
+vnet_name = "vnetprod"
+subnet_name = "subnetprod"
+nsg_name = "nsgprod"
+
+#LB variables
+lb_name = "loadbalancerprod"
+lb_public_ip_name = "lbpublicipprod"
+
+#database variables
+sql_server_name = "prodsqlserver"
+admin_login = "prod_admin_user"
+admin_login_password = "jshfhaASDF#11!"
+db_name = "prod_database"
+
+#service plan variables
+app_service_plan_name = "prodserviceplan"
+
+#SKU name 
+sku_name = "B1"
+
+#os type
+os_type = "Linux"
