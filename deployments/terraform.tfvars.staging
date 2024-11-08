@@ -1,0 +1,32 @@
+#rg variables
+rg_name = "rg-assigment2dmn"
+location = "westeurope"
+
+
+#sa variables
+sa_name = "saoppg2staging"
+sc_name = "scoppg2staging"
+
+#Network variables
+vnet_name = "vnetstaging"
+subnet_name = "subnetstaging"
+nsg_name = "nsgstaging"
+
+#LB variables
+lb_name = "loadbalancerstaging"
+lb_public_ip_name = "lbpublicipstaging"
+
+#database variables
+sql_server_name = "stagingsqlserver"
+admin_login = "staging_admin_user"
+admin_login_password = "jshfhaASDF#11!"
+db_name = "staging_database"
+
+#service plan variables
+app_service_plan_name = "devserviceplan"
+
+#SKU name 
+sku_name = "B1"
+
+#os type
+os_type = "Linux"
