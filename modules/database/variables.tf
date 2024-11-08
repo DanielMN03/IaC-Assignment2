@@ -48,5 +48,5 @@ variable "storage_account_access_key" {
 
 variable "random_string_suffix" {
   description = "The suffix to append to the names of resources"
-  type        = string  
+  type        = string
 }
