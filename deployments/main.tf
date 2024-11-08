@@ -10,7 +10,7 @@ terraform {
     resource_group_name  = "navn-rg-backend"             # Resource group name
     storage_account_name = "sanameds686puu"              # Storage account name
     container_name       = "navnstoragecontainer"        # The container name where Terraform state will be stored
-    key                  = "dev.oblig.terraform.tfstate" # The state file name
+    key                  = "prod.oblig.terraform.tfstate" # The state file name
   }
 }
 
