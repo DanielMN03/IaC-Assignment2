@@ -38,7 +38,7 @@ jobs:
         with:
           working_directory: ${{ env.WORKING_DIR }}
           github_token: ${{ env.GITHUB_TOKEN }}
-          minimum_severity: HIGH
+          additional_args: "--minimum-severity HIGH"
           
 
 
