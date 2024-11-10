@@ -10,6 +10,7 @@ resource "azurerm_storage_account" "storage_account" {
   min_tls_version          = "TLS1_2"
 }
 
+# Define the Blob Storage Container
 resource "azurerm_storage_container" "blob_container" {
   name                  = var.sc_name
   storage_account_name  = azurerm_storage_account.storage_account.name
