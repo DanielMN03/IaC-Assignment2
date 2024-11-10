@@ -1,0 +1,63 @@
+name: Terraform Deploy
+
+on:
+  push:
+    branches:
+      - staging
+      - prod
+
+env:
+  ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+  WORKING_DIR: ./deployments
+
+jobs:
+  staging-deploy:
+    if: github.ref == 'refs/heads/staging' # Trigger job for staging branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+        # Perform terraform init
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ${{ env.WORKING_DIR }}
+        
+        # Perform plan
+      - name: Terraform Plan
+        run: terraform plan -var-file="terraform.tfvars.staging" -out=main.tfplan
+        working-directory: ${{ env.WORKING_DIR }}
+
+        # Perform apply
+      - name: Terraform Apply
+        run: terraform apply -auto-approve "main.tfplan"
+        working-directory: ${{ env.WORKING_DIR }}
+
+  production-deploy:
+    if: github.ref == 'refs/heads/prod' # Trigger for prod branch
+    runs-on: ubuntu-latest
+    environment:
+      name: production # Added environment 
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+        # Perform terrafrom init
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ${{ env.WORKING_DIR }}
+        
+        # Perform plan
+      - name: Terraform Plan
+        run: terraform plan -var-file="terraform.tfvars.prod" -out=main.tfplan
+        working-directory: ${{ env.WORKING_DIR }}
+        
+        # Perform apply
+      - name: Terraform Apply
+        run: terraform apply -auto-approve "main.tfplan"
+        working-directory: ${{ env.WORKING_DIR }}

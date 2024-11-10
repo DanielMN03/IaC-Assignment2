@@ -1,3 +1,4 @@
+# create sql server
 resource "azurerm_mssql_server" "sql_server" {
   name                          = "${var.sql_server_name}${var.random_string_suffix}"
   resource_group_name           = var.rg_name
@@ -13,6 +14,7 @@ resource "azurerm_mssql_server" "sql_server" {
   }
 }
 
+# Create a security alert policy
 resource "azurerm_mssql_server_security_alert_policy" "security_alert_policy" {
   resource_group_name        = var.rg_name
   server_name                = azurerm_mssql_server.sql_server.name
@@ -23,7 +25,7 @@ resource "azurerm_mssql_server_security_alert_policy" "security_alert_policy" {
   retention_days             = 30
 }
 
-
+# Create a database
 resource "azurerm_mssql_database" "sql_db" {
   name         = "${var.db_name}${var.random_string_suffix}"
   server_id    = azurerm_mssql_server.sql_server.id

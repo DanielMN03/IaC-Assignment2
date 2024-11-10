@@ -1,3 +1,4 @@
+# Purpose: Define the input variables for the storage module
 variable "sa_name" {
   description = "The name of the storage account"
   type        = string
