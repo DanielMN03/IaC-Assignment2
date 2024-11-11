@@ -40,4 +40,12 @@ The networking module creates the necessayr vnet, subnets, network security grou
 The storage module creates the sortage accoutn adn blob conatiner necessary for this project.
 
 ## Pipeline workflow
+The pipeline contains two workflows. A security check which checks the codes format, runs terraform init, and tfsec. This pipeline and workflow gets executed when a pull request is created to the environment branches; dev, staging and prod. The purpose of this workflow is to check that the code works and is correctly formatted and works as intended before it is merged into the desired branch. If the check is succesfull a merge can be done.
+
+The second workflow is the deployment file. this workflow is triggered by a push to any of the environment branches. In the workflow contains three jobs, each job checks the name of the branch and is only triggered if the job if statement matches the branch which is merged into and pushed. The jobs perform terraform init in the working directory which is set to deployments. Thereafter it runs terraform plan with the correct tfvars file through the -var-file flag. It also saves the plan to a main.tfplan. After that the job performs a terraform apply -auto-approve with the main.tfplan.
+
+The prod job has an extra feature which contains the production environment. The purpose of this is to assign a reviewer to approve the push to prod and execution of deploying the resources before it gets executed. In this case the reviewer is me and i will egt an email asking to confirm the workflow before it starts.
+
+Link github repo: https://github.com/DanielMN03/IaC-Assignment2
+
 
