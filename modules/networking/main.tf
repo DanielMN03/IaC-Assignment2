@@ -1,3 +1,4 @@
+# create vnet
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.vnet_name}${var.random_string_suffix}"
   location            = var.location
@@ -21,6 +22,7 @@ resource "azurerm_subnet" "db_subnet" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+# Network Security Group
 resource "azurerm_network_security_group" "nsg" {
   name                = var.nsg_name
   location            = var.location
