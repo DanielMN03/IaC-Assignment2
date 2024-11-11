@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "navn-rg-backend"             # Resource group name
-    storage_account_name = "sanameds686puu"              # Storage account name
-    container_name       = "navnstoragecontainer"        # The container name where Terraform state will be stored
+    resource_group_name  = "navn-rg-backend"                 # Resource group name
+    storage_account_name = "sanameds686puu"                  # Storage account name
+    container_name       = "navnstoragecontainer"            # The container name where Terraform state will be stored
     key                  = "staging.oblig.terraform.tfstate" # The state file name
   }
 }
