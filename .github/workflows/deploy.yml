@@ -3,6 +3,7 @@ name: Terraform Deploy
 on:
   push:
     branches:
+      - dev
       - staging
       - prod
 
@@ -14,6 +15,29 @@ env:
   WORKING_DIR: ./deployments
 
 jobs:
+  dev-deploy:
+    if: github.ref == 'refs/heads/dev' # Trigger job for dev branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Perform terraform init
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ${{ env.WORKING_DIR }}
+        
+      # Perform terraform plan
+      - name: Terraform Plan
+        run: terraform plan -var-file="terraform.tfvars.dev" -out=main.tfplan
+        working-directory: ${{ env.WORKING_DIR }}
+
+      # Perform terraform apply
+      - name: Terraform Apply
+        run: terraform apply -auto-approve "main.tfplan"
+        working-directory: ${{ env.WORKING_DIR }}
+        
   staging-deploy:
     if: github.ref == 'refs/heads/staging' # Trigger job for staging branch
     runs-on: ubuntu-latest

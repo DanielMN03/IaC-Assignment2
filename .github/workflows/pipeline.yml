@@ -1,9 +1,12 @@
-name: Security Checks Dev
+name: Security Checks 
 
 on:
-  push:  
+  pull_request:  
     branches:
       - dev
+      - staging
+      - prod
+
 
 jobs:
   terraform-security-check:
